@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark AI | Developer Workspace</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Markdown Parser & Code Highlighter -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-terminal"></i> Dark AI
+        </div>
+        <div class="model-info">Model: Claude Sonnet 4.6</div>
+        
+        <button class="nav-btn" id="tab-chat"><i class="fa-regular fa-comments"></i> Chat Mode</button>
+        <button class="nav-btn" id="tab-builder"><i class="fa-solid fa-code"></i> Website Builder</button>
+        
+        <button id="clear-chat"><i class="fa-solid fa-trash"></i> Clear Session</button>
+    </div>
+    
+    <div class="main-content">
+        
+        <!-- CHAT UI -->
+        <div id="chat-ui" class="view active">
+            <div class="chat-container" id="chat-container">
+                <div class="message ai-message">
+                    <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                    <div class="content">Workspace ready. How can I assist you today, He?</div>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <label for="file-upload" class="icon-btn"><i class="fa-solid fa-paperclip"></i></label>
+                <input type="file" id="file-upload" style="display: none;">
+                <span id="file-name"></span>
+                <textarea id="user-input" placeholder="Message Dark AI..." rows="1"></textarea>
+                <button id="send-btn" class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <!-- WEBSITE BUILDER UI -->
+        <div id="builder-ui" class="view">
+            <div class="builder-panel">
+                <h2>AI Website Generator</h2>
+                <p>Describe the website you want. The AI will generate the full HTML/CSS/JS and package it into a ZIP file.</p>
+                
+                <input type="text" id="project-name" placeholder="Project Folder Name (e.g., my_portfolio)">
+                <textarea id="builder-prompt" placeholder="Describe the website (e.g., A dark-mode portfolio site with a hero section, projects grid, and contact form using HTML/CSS/JS)..." rows="5"></textarea>
+                
+                <button id="generate-btn" class="primary-btn"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate Full Source Code</button>
+                
+                <div id="builder-status" class="status-box hidden"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
