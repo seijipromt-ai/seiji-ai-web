@@ -16,7 +16,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 # FreeModel API Config
 AI_API_KEY = "fm_f35685a61f8694219e1a5fa5389c9ce84e8272e197889aea"
 AI_API_URL = "https://freemodel.in/v1/chat/completions"
-AI_MODEL = "claude-sonnet-4-6"
+AI_MODEL = "claude-opus-4-8"
 
 # --- SYSTEM PROMPTS ---
 CHAT_PROMPT = """
